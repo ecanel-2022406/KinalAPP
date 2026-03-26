@@ -34,7 +34,7 @@ public class VentaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/activo")
+    @GetMapping("/estado/{estado}")
     public ResponseEntity<List<Venta>> buscarPorEstado(@PathVariable int estado){
         List<Venta> ventas = ventaService.buscarPorEstado(estado);
         if (ventas.isEmpty()){
