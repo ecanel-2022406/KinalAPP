@@ -18,14 +18,12 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    // GET listar todos
     @GetMapping
     public ResponseEntity<List<Usuario>> listar(){
         List<Usuario> usuarios = usuarioService.listarTodos();
         return ResponseEntity.ok(usuarios);
     }
 
-    // GET buscar por ID
     @GetMapping("/{codigoUsuario}")
     public ResponseEntity<Usuario> buscarPorCodigoUsuario(@PathVariable int codigoUsuario){
         return usuarioService.buscarPorCodigoUsuario(codigoUsuario)
@@ -33,7 +31,6 @@ public class UsuarioController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // GET buscar por estado
     @GetMapping("/estado/{estado}")
     public ResponseEntity<List<Usuario>> buscarPorEstado(@PathVariable int estado){
         List<Usuario> usuarios = usuarioService.buscarPorEstado(estado);
@@ -43,7 +40,6 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
-    // POST crear usuario
     @PostMapping
     public ResponseEntity<?> guardar(@RequestBody Usuario usuario) {
         try {
@@ -54,7 +50,6 @@ public class UsuarioController {
         }
     }
 
-    // DELETE eliminar
     @DeleteMapping("/{codigoUsuario}")
     public ResponseEntity<Void> eliminar(@PathVariable int codigoUsuario){
         try {
@@ -68,7 +63,6 @@ public class UsuarioController {
         }
     }
 
-    // PUT actualizar
     @PutMapping("/{codigoUsuario}")
     public ResponseEntity<?> actualizar(@PathVariable int codigoUsuario, @RequestBody Usuario usuario){
         try{
