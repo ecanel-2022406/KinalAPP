@@ -1,6 +1,6 @@
-package com.cristianmanuel.Kinalapp.service;
+package com.edycanel.kinalapp.service;
 
-import com.cristianmanuel.Kinalapp.entity.Cliente;
+import com.edycanel.kinalapp.entity.Cliente;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
